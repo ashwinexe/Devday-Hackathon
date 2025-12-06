@@ -1,0 +1,21 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Hackathon Cheating Detector Output",
+    "properties": {
+        "flaggedProjects": {
+            "type": "string",
+            "title": "🚩 Flagged Projects",
+            "template": "{{links.apiDefaultDatasetUrl}}/items?view=flagged"
+        },
+        "fullReport": {
+            "type": "string",
+            "title": "📊 Full Analysis Report",
+            "template": "{{links.apiDefaultDatasetUrl}}/items?view=full_report"
+        },
+        "summary": {
+            "type": "string",
+            "title": "📋 Summary",
+            "template": "{{links.apiDefaultDatasetUrl}}/items?view=summary"
+        }
+    }
+}

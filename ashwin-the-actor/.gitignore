@@ -1,0 +1,21 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Apify
+storage/
+.actor/
+!.actor/actor.json
+!.actor/input_schema.json
+!.actor/output_schema.json
+!.actor/dataset_schema.json
+
+# Environment variables
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+

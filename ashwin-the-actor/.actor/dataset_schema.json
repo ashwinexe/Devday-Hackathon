@@ -1,0 +1,148 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "type": "object",
+        "properties": {
+            "projectName": { "type": "string" },
+            "projectUrl": { "type": "string" },
+            "platform": { "type": "string" },
+            "suspicionScore": { "type": "number" },
+            "verdict": { "type": "string" },
+            "flags": { "type": "array", "items": { "type": "string" } },
+            "summary": { "type": "string" },
+            "teamMembers": { "type": "array" },
+            "githubAnalysis": { "type": "object" },
+            "historyAnalysis": { "type": "object" },
+            "videoAnalysis": { "type": "object" },
+            "analyzedAt": { "type": "string" }
+        }
+    },
+    "views": {
+        "flagged": {
+            "title": "🚩 Flagged Projects",
+            "description": "Projects with suspicion score above threshold, sorted by score",
+            "transformation": {
+                "fields": ["projectName", "projectUrl", "suspicionScore", "verdict", "flags", "summary"],
+                "desc": true
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "projectName": {
+                        "label": "Project",
+                        "format": "text"
+                    },
+                    "projectUrl": {
+                        "label": "URL",
+                        "format": "link"
+                    },
+                    "suspicionScore": {
+                        "label": "Score",
+                        "format": "number"
+                    },
+                    "verdict": {
+                        "label": "Verdict",
+                        "format": "text"
+                    },
+                    "flags": {
+                        "label": "Flags",
+                        "format": "array"
+                    },
+                    "summary": {
+                        "label": "Summary",
+                        "format": "text"
+                    }
+                }
+            }
+        },
+        "full_report": {
+            "title": "📊 Full Analysis Report",
+            "description": "Complete analysis details for all projects",
+            "transformation": {
+                "fields": ["projectName", "projectUrl", "platform", "suspicionScore", "verdict", "flags", "summary", "teamMembers", "githubAnalysis", "historyAnalysis", "videoAnalysis", "analyzedAt"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "projectName": {
+                        "label": "Project",
+                        "format": "text"
+                    },
+                    "projectUrl": {
+                        "label": "URL",
+                        "format": "link"
+                    },
+                    "platform": {
+                        "label": "Platform",
+                        "format": "text"
+                    },
+                    "suspicionScore": {
+                        "label": "Score",
+                        "format": "number"
+                    },
+                    "verdict": {
+                        "label": "Verdict",
+                        "format": "text"
+                    },
+                    "flags": {
+                        "label": "Flags",
+                        "format": "array"
+                    },
+                    "summary": {
+                        "label": "Summary",
+                        "format": "text"
+                    },
+                    "teamMembers": {
+                        "label": "Team",
+                        "format": "array"
+                    },
+                    "githubAnalysis": {
+                        "label": "GitHub Analysis",
+                        "format": "object"
+                    },
+                    "historyAnalysis": {
+                        "label": "History Analysis",
+                        "format": "object"
+                    },
+                    "videoAnalysis": {
+                        "label": "Video Analysis",
+                        "format": "object"
+                    },
+                    "analyzedAt": {
+                        "label": "Analyzed At",
+                        "format": "date"
+                    }
+                }
+            }
+        },
+        "summary": {
+            "title": "📋 Summary",
+            "description": "Quick overview of all analyzed projects",
+            "transformation": {
+                "fields": ["projectName", "suspicionScore", "verdict", "summary"],
+                "desc": true
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "projectName": {
+                        "label": "Project",
+                        "format": "text"
+                    },
+                    "suspicionScore": {
+                        "label": "Score",
+                        "format": "number"
+                    },
+                    "verdict": {
+                        "label": "Verdict",
+                        "format": "text"
+                    },
+                    "summary": {
+                        "label": "Summary",
+                        "format": "text"
+                    }
+                }
+            }
+        }
+    }
+}

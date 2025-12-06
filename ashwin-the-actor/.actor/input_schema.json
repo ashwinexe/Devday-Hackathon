@@ -1,0 +1,97 @@
+{
+    "title": "Hackathon Cheating Detector Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "mode": {
+            "title": "Analysis Mode",
+            "type": "string",
+            "description": "Choose whether to analyze a single project or scan an entire hackathon.",
+            "editor": "select",
+            "enum": ["single_project", "hackathon_scan"],
+            "enumTitles": ["Single Project Analysis", "Full Hackathon Scan"],
+            "default": "single_project"
+        },
+        "projectUrl": {
+            "title": "Project URL",
+            "type": "string",
+            "description": "URL of a single project submission (Devfolio or Devpost). Required when mode is 'single_project'.",
+            "editor": "textfield",
+            "prefill": "https://devfolio.co/projects/example-project"
+        },
+        "hackathonUrl": {
+            "title": "Hackathon URL",
+            "type": "string",
+            "description": "URL of the hackathon page to scan all projects (Devfolio or Devpost). Required when mode is 'hackathon_scan'.",
+            "editor": "textfield",
+            "prefill": "https://devfolio.co/hackathons/example-hackathon"
+        },
+        "hackathonStartDate": {
+            "title": "Hackathon Start Date",
+            "type": "string",
+            "description": "The official start date of the hackathon (YYYY-MM-DD). Used to verify GitHub commits and video upload dates.",
+            "editor": "textfield",
+            "prefill": "2024-01-15"
+        },
+        "hackathonEndDate": {
+            "title": "Hackathon End Date",
+            "type": "string",
+            "description": "The official end date of the hackathon (YYYY-MM-DD). Used to verify commit timelines.",
+            "editor": "textfield",
+            "prefill": "2024-01-17"
+        },
+        "githubToken": {
+            "title": "GitHub Token (Optional)",
+            "type": "string",
+            "description": "Personal access token for GitHub API. Increases rate limits from 60 to 5000 requests/hour. Leave empty for public access.",
+            "editor": "textfield",
+            "isSecret": true
+        },
+        "maxProjectsToScan": {
+            "title": "Max Projects to Scan",
+            "type": "integer",
+            "description": "Maximum number of projects to analyze in hackathon scan mode. Set to 0 for unlimited.",
+            "default": 50,
+            "minimum": 0
+        },
+        "deepAnalysis": {
+            "title": "Enable Deep Analysis",
+            "type": "boolean",
+            "description": "Performs thorough analysis including team member history, past hackathon participation, and code similarity checks. Takes longer but more accurate.",
+            "default": true
+        },
+        "checkGitHubCommits": {
+            "title": "Check GitHub Commits",
+            "type": "boolean",
+            "description": "Analyze GitHub commit timestamps against hackathon dates.",
+            "default": true
+        },
+        "checkTeamHistory": {
+            "title": "Check Team History",
+            "type": "boolean",
+            "description": "Search for team members' past hackathon submissions to detect project reuse.",
+            "default": true
+        },
+        "checkVideoTimestamps": {
+            "title": "Check Video Timestamps",
+            "type": "boolean",
+            "description": "Verify video upload dates on YouTube/Loom against hackathon dates.",
+            "default": true
+        },
+        "suspicionThreshold": {
+            "title": "Suspicion Score Threshold",
+            "type": "integer",
+            "description": "Minimum suspicion score (0-100) to flag a project. Projects below this score are marked as 'likely clean'.",
+            "default": 30,
+            "minimum": 0,
+            "maximum": 100
+        },
+        "maxRequestsPerCrawl": {
+            "title": "Max Requests per Crawl",
+            "type": "integer",
+            "description": "Maximum HTTP requests the crawler can make. Higher values allow more thorough analysis.",
+            "default": 500
+        }
+    },
+    "required": ["mode"]
+}

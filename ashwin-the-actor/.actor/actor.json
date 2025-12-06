@@ -1,0 +1,17 @@
+{
+    "actorSpecification": 1,
+    "name": "hackathon-cheating-detector",
+    "title": "Hackathon Cheating Detector",
+    "description": "Detects potential cheating in hackathon projects by analyzing Devfolio & Devpost submissions, GitHub commits, team member history, and video timestamps.",
+    "version": "1.0",
+    "meta": {
+        "templateId": "ai-generated-actor",
+        "generatedBy": "claude-opus-4-5"
+    },
+    "input": "./input_schema.json",
+    "output": "./output_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "dockerfile": "../Dockerfile"
+}
