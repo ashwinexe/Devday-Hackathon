@@ -1,0 +1,27 @@
+{
+  "name": "devday-hackathon",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Apify actors project for Devday Hackathon",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "npm run start:dev",
+    "start:prod": "node dist/main.js",
+    "start:dev": "node src/main.js",
+    "test": "echo \"No tests configured yet\" && exit 0"
+  },
+  "keywords": [
+    "apify",
+    "actor",
+    "web-scraping",
+    "automation"
+  ],
+  "author": "Ashwin Kumar Uppala",
+  "license": "MIT",
+  "dependencies": {
+    "apify": "^3.5.2",
+    "crawlee": "^3.15.3"
+  }
+}

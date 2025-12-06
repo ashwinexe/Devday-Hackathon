@@ -1,0 +1,28 @@
+{
+    "title": "DevDay Hackathon Actor Input",
+    "description": "Configure the actor's scraping behavior",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "startUrls": {
+            "title": "Start URLs",
+            "type": "array",
+            "description": "URLs to start crawling from",
+            "prefill": [
+                {
+                    "url": "https://apify.com"
+                }
+            ],
+            "editor": "requestListSources"
+        },
+        "maxRequestsPerCrawl": {
+            "title": "Max requests per crawl",
+            "type": "integer",
+            "description": "Maximum number of pages to crawl",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 1000000
+        }
+    },
+    "required": []
+}

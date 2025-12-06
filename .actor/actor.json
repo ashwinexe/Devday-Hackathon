@@ -1,0 +1,11 @@
+{
+    "actorSpecification": 1,
+    "name": "devday-hackathon-actor",
+    "title": "DevDay Hackathon Actor",
+    "description": "A web scraping actor built with Apify SDK and Crawlee for the DevDay Hackathon",
+    "version": "1.0",
+    "buildTag": "latest",
+    "environmentVariables": {},
+    "input": "./input_schema.json",
+    "dockerfile": "./Dockerfile"
+}
